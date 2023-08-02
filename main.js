@@ -13,15 +13,17 @@ function take_snapshot()
         document.getElementById("result").innerhtml='<img id="captured_image" src="'+data_uri+'"/>'
     });
 }
-
-console.log('ml5 version',ml5.version);
-classifier=ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/AxM0P1_Pw/model.json',moldelLoaded);
-
-function check(){
-    img=document.getElementById("captured_image");
-    classifier.classify(img, gotResult);
+function moldelLoaded(){
+    console.log("model loaded")
 }
 
+classifier=ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/AxM0P1_Pw/model.json',moldelLoaded);
+console.log('ml5 version',ml5.version);
+function check(){
+    img=document.getElementById("captured_image");
+  
+}
+console.log('ml5 version',ml5.version);
 function gotResult(){
  if(error){
     console.error(error);
